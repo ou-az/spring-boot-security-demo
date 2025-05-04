@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Docker Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Docker Demo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item" sec:authorize="hasRole('ADMIN')">
+                        <a class="nav-link" href="#">Admin Panel</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <span class="navbar-text me-3">
+                        Welcome, <span th:text="${username}">User</span>!
+                    </span>
+                    <form th:action="@{/logout}" method="post">
+                        <button type="submit" class="btn btn-outline-light btn-sm">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Dashboard</h5>
+                    </div>
+                    <div class="card-body">
+                        <h2>Welcome to Your Dashboard</h2>
+                        <p>This is a secured page that's only accessible after authentication.</p>
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle me-2"></i>
+                            This application is running in a Docker container, demonstrating containerization of a Spring Boot application.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        System Status
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Application Status
+                                <span class="badge bg-success rounded-pill">Running</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Java Version
+                                <span class="badge bg-primary rounded-pill">17</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Spring Boot Version
+                                <span class="badge bg-primary rounded-pill">2.7.12</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                Auth Provider
+                                <span class="badge bg-primary rounded-pill">Spring Security</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        User Information
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Username:</strong> <span th:text="${username}">user</span></p>
+                        <p><strong>Roles:</strong></p>
+                        <ul>
+                            <li sec:authorize="hasRole('USER')">USER</li>
+                            <li sec:authorize="hasRole('ADMIN')">ADMIN</li>
+                        </ul>
+                        <p><strong>Login Time:</strong> <span th:text="${#dates.format(#dates.createNow(), 'dd-MM-yyyy HH:mm')}">01-01-2025 12:00</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light py-3 mt-5">
+        <div class="container text-center">
+            <p class="text-muted mb-0">&copy; 2025 Docker Demo Application. Running in a container.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
