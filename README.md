@@ -21,9 +21,10 @@ A comprehensive Spring Boot Security demonstration showcasing enterprise-grade a
   - Token refresh mechanisms
 
 - **OAuth2 Integration** for social login
-  - GitHub and Google provider support
-  - Customizable authentication flow
-  - Seamless integration with Spring Security
+  - GitHub and Google provider support with configurable client credentials
+  - Customizable authentication flow with provider-specific attributes
+  - Seamless integration with Spring Security's filter chains
+  - Multi-provider authentication with unified user experience
 
 - **Comprehensive Security Architecture**
   - Form-based authentication for web UI
@@ -38,7 +39,6 @@ A comprehensive Spring Boot Security demonstration showcasing enterprise-grade a
   - Docker containerization for deployment
 
 ## Local Development
-
 
 ### Prerequisites
 
@@ -177,6 +177,7 @@ This project implements a comprehensive security architecture:
    - Provider redirects back with an authorization code
    - Spring Security exchanges the code for an access token
    - Access token is used to fetch user details and create a local user session
+   - User identity is federated across multiple authentication systems
 
 ### Security Components
 
@@ -221,6 +222,55 @@ This project showcases several skills that are valuable for senior engineering r
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## OAuth2 Provider Setup
+
+### GitHub OAuth2 Setup
+
+1. Create a GitHub OAuth App:
+   - Go to GitHub → Settings → Developer settings → OAuth Apps → New OAuth App
+   - Set Application name: `Spring Boot Security Demo`
+   - Homepage URL: `http://localhost:8080`
+   - Authorization callback URL: `http://localhost:8080/login/oauth2/code/github`
+   - Click "Register application"
+
+2. Configure application.properties:
+
+   ```properties
+   # GitHub OAuth2 Configuration
+   spring.security.oauth2.client.registration.github.client-id=YOUR_GITHUB_CLIENT_ID
+   spring.security.oauth2.client.registration.github.client-secret=YOUR_GITHUB_CLIENT_SECRET
+   spring.security.oauth2.client.registration.github.scope=user:email,read:user
+   spring.security.oauth2.client.registration.github.redirect-uri=http://localhost:8080/login/oauth2/code/github
+   ```
+
+### Google OAuth2 Setup
+
+1. Create Google OAuth credentials:
+   - Go to [Google Cloud Console](https://console.cloud.google.com/)
+   - Navigate to APIs & Services → Credentials → Create Credentials → OAuth client ID
+   - Select "Web application" as application type
+   - Set a name: `Spring Boot Security Demo`
+   - Add authorized redirect URI: `http://localhost:8080/login/oauth2/code/google`
+   - Click "Create"
+
+2. Configure application.properties:
+
+   ```properties
+   # Google OAuth2 Configuration
+   spring.security.oauth2.client.registration.google.client-id=YOUR_GOOGLE_CLIENT_ID
+   spring.security.oauth2.client.registration.google.client-secret=YOUR_GOOGLE_CLIENT_SECRET
+   spring.security.oauth2.client.registration.google.scope=profile,email
+   spring.security.oauth2.client.registration.google.redirect-uri=http://localhost:8080/login/oauth2/code/google
+   ```
+
+### OAuth2 Production Considerations
+
+- **Secure Credentials Storage**: In production, OAuth client credentials should be stored in secure vaults or environment variables, not in properties files
+- **HTTPS Required**: OAuth2 providers require HTTPS for production callback URLs
+- **State Parameter Validation**: Ensure proper state parameter handling to prevent CSRF attacks
+- **Session Management**: Implement proper session handling for OAuth2 authenticated users
+- **Identity Federation**: Consider integration with enterprise identity providers for SSO capabilities
 
 ## Next Steps
 
