@@ -1,6 +1,6 @@
-# Contributing to Spring Boot Docker Demo
+# Contributing to Spring Boot Security Demo
 
-Thank you for considering contributing to this project! This document outlines the process for contributing to the Spring Boot Docker Demo project.
+Thank you for considering contributing to this project! This document outlines the process for contributing to the Spring Boot Security Demo project.
 
 ## Code of Conduct
 
@@ -12,7 +12,7 @@ By participating in this project, you agree to maintain a respectful and inclusi
 
 If you find a bug or have a suggestion for improvement:
 
-1. First, check if the issue already exists in the [GitHub Issues](https://github.com/yourusername/spring-boot-docker-demo/issues)
+1. First, check if the issue already exists in the [GitHub Issues](https://github.com/yourusername/spring-boot-security-demo/issues)
 2. If not, create a new issue with a clear title and description
 3. Include steps to reproduce the issue and any relevant logs or screenshots
 4. Add appropriate labels (bug, enhancement, documentation, etc.)
@@ -50,8 +50,8 @@ If you find a bug or have a suggestion for improvement:
 
 ```bash
 # Clone your fork
-git clone https://github.com/yourusername/spring-boot-docker-demo.git
-cd spring-boot-docker-demo
+git clone https://github.com/yourusername/spring-boot-security-demo.git
+cd spring-boot-security-demo
 
 # Build the application
 mvn clean package
@@ -64,8 +64,8 @@ mvn spring-boot:run
 
 ```bash
 # Build and run with Docker
-docker build -t spring-docker-demo .
-docker run -p 8080:8080 spring-docker-demo
+docker build -t spring-security-demo .
+docker run -p 8080:8080 spring-security-demo
 ```
 
 ## Coding Standards

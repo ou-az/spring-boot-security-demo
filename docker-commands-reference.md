@@ -30,7 +30,7 @@ When encountering connection issues with Docker:
 
 ```bash
 # Error example
-docker build -t spring-docker-demo .
+docker build -t spring-security-demo .
 ERROR: error during connect: Head "http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/_ping": open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
 ```
 
@@ -98,7 +98,7 @@ FROM maven:latest AS build
 
 ```bash
 # Build Docker image with a tag
-docker build -t spring-docker-demo .
+docker build -t spring-security-demo .
 ```
 
 The multi-stage build process demonstrated:
@@ -111,7 +111,7 @@ The multi-stage build process demonstrated:
 
 ```bash
 # Run container in detached mode with port mapping
-docker run -d -p 8080:8080 --name spring-login-demo spring-docker-demo
+docker run -d -p 8080:8080 --name spring-security-app spring-security-demo
 ```
 
 ## Container Management
@@ -145,7 +145,7 @@ docker rm spring-login-demo
 
 ```bash
 # Remove a Docker image
-docker rmi spring-docker-demo
+docker rmi spring-security-demo
 ```
 
 ## Clean-up Operations

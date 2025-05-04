@@ -12,7 +12,7 @@
   <path d="M390,110 C370,130 390,150 410,130 Z" fill="#6db33f" stroke="white" stroke-width="2" />
   
   <!-- Title -->
-  <text x="400" y="190" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#343a40">Docker Demo Login</text>
+  <text x="400" y="190" font-family="Arial" font-size="18" font-weight="bold" text-anchor="middle" fill="#343a40">Spring Boot Security Demo</text>
   
   <!-- Username Field -->
   <rect x="275" y="210" width="250" height="40" rx="4" ry="4" fill="white" stroke="#ced4da" stroke-width="1" />
@@ -30,5 +30,5 @@
   <text x="400" y="390" font-family="Arial" font-size="12" text-anchor="middle" fill="#6c757d">Default users: user/password or admin/admin</text>
   
   <!-- Footer -->
-  <text x="400" y="425" font-family="Arial" font-size="12" text-anchor="middle" fill="#6c757d">© 2025 Docker Demo</text>
+  <text x="400" y="425" font-family="Arial" font-size="12" text-anchor="middle" fill="#6c757d">© 2025 Spring Boot Security Demo</text>
 </svg>

@@ -1,6 +1,6 @@
-# Spring Boot Docker Demo
+# Spring Boot Security Demo
 
-[![Build Status](https://img.shields.io/github/workflow/status/yourusername/spring-boot-docker-demo/Spring%20Boot%20Docker%20Demo%20CI?style=flat-square)](https://github.com/yourusername/spring-boot-docker-demo/actions)
+[![Build Status](https://img.shields.io/github/workflow/status/yourusername/spring-boot-security-demo/Spring%20Boot%20Docker%20Demo%20CI?style=flat-square)](https://github.com/yourusername/spring-boot-security-demo/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Docker](https://img.shields.io/badge/Docker-Enabled-blue.svg?style=flat-square&logo=docker)](https://www.docker.com/)
 [![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.4.5-green.svg?style=flat-square&logo=spring)](https://spring.io/projects/spring-boot)
@@ -51,14 +51,14 @@ The application will be available at [http://localhost:8080](http://localhost:80
 
 ```bash
 # Build the image
-docker build -t spring-docker-demo .
+docker build -t spring-security-demo .
 ```
 
 ### Running the Container
 
 ```bash
 # Run the container
-docker run -p 8080:8080 spring-docker-demo
+docker run -p 8080:8080 spring-security-demo
 ```
 
 ### Using Docker Compose

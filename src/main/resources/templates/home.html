@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docker Demo Application</title>
+    <title>Spring Boot Security Demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
         .hero {
             background-color: #f5f5f5;
@@ -12,40 +13,196 @@
             margin-bottom: 2rem;
         }
         .container {
-            max-width: 800px;
+            max-width: 1200px;
+        }
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #0d6efd;
+        }
+        .tech-badge {
+            display: inline-block;
+            padding: 0.35em 0.65em;
+            margin: 0.25rem;
+            font-size: 0.75em;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25rem;
+            color: #fff;
+            background-color: #0d6efd;
+        }
+        .tech-badge.green {
+            background-color: #198754;
+        }
+        .tech-badge.orange {
+            background-color: #fd7e14;
+        }
+        .content-section {
+            padding: 3rem 0;
+        }
+        .code-block {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: monospace;
+            position: relative;
+            margin-bottom: 1rem;
+            white-space: pre-wrap;
+        }
+        .auth-flow-container {
+            position: relative;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .auth-flow-arrow {
+            position: absolute;
+            top: 50%;
+            left: -15px;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #6c757d;
         }
     </style>
 </head>
 <body>
     <div class="hero">
-        <div class="container">
-            <h1 class="display-4">Welcome to Docker Demo</h1>
-            <p class="lead">A simple containerized Spring Boot application with security</p>
+        <div class="container text-center">
+            <img src="/images/spring-logo.svg" alt="Spring Logo" height="120" class="mb-4">
+            <h1 class="display-4">Spring Boot Security Demo</h1>
+            <p class="lead">Demonstrating Spring Security with JWT Authentication & OAuth2 Integration</p>
             <hr class="my-4">
-            <p>This application demonstrates containerization skills with Docker and Spring Boot</p>
-            <a class="btn btn-primary btn-lg" href="/login" role="button">Log In</a>
+            <p>A comprehensive security demonstration in a containerized Spring Boot application</p>
+            <a class="btn btn-primary btn-lg me-2" href="/login" role="button"><i class="bi bi-shield-lock me-2"></i>Log In</a>
+            <a class="btn btn-outline-secondary btn-lg" href="#features" role="button"><i class="bi bi-info-circle me-2"></i>Learn More</a>
         </div>
     </div>
     
-    <div class="container">
+    <div class="container content-section" id="features">
+        <h2 class="text-center mb-5">Security Features</h2>
         <div class="row">
-            <div class="col-md-4">
-                <h2>Containerized</h2>
-                <p>Built as a Docker container for easy deployment on any platform</p>
+            <div class="col-md-4 mb-4">
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <i class="bi bi-key"></i>
+                    </div>
+                    <h3>JWT Authentication</h3>
+                    <p>JSON Web Token based authentication for stateless, secure API access</p>
+                    <span class="tech-badge">Bearer Token</span>
+                    <span class="tech-badge">Stateless</span>
+                </div>
             </div>
-            <div class="col-md-4">
-                <h2>Secure</h2>
-                <p>Implements Spring Security for authentication</p>
+            <div class="col-md-4 mb-4">
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <i class="bi bi-github"></i>
+                    </div>
+                    <h3>OAuth2 Integration</h3>
+                    <p>Social login capability with major identity providers</p>
+                    <span class="tech-badge">GitHub</span>
+                    <span class="tech-badge">Google</span>
+                </div>
             </div>
-            <div class="col-md-4">
-                <h2>Cloud Ready</h2>
-                <p>Designed for deployment in cloud environments</p>
+            <div class="col-md-4 mb-4">
+                <div class="text-center">
+                    <div class="feature-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h3>Role-Based Security</h3>
+                    <p>Fine-grained access control based on user roles</p>
+                    <span class="tech-badge green">USER</span>
+                    <span class="tech-badge orange">ADMIN</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Technical Implementation</h2>
+            
+            <div class="row mb-5">
+                <div class="col-md-6">
+                    <h4><i class="bi bi-braces me-2"></i>JWT Authentication Flow</h4>
+                    <p>The JWT-based authentication flow allows secure API access:</p>
+                    
+                    <div class="auth-flow-container">
+                        <h5>1. User Authentication</h5>
+                        <div class="code-block">POST /api/auth/login
+Content-Type: application/json
+
+{
+  "username": "user",
+  "password": "password"
+}</div>
+                    </div>
+                    
+                    <div class="auth-flow-container">
+                        <div class="auth-flow-arrow"><i class="bi bi-arrow-down"></i></div>
+                        <h5>2. Server Issues JWT</h5>
+                        <div class="code-block">{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5...",
+  "tokenType": "Bearer",
+  "expiresIn": 86400000,
+  "username": "user",
+  "roles": ["ROLE_USER"]
+}</div>
+                    </div>
+                    
+                    <div class="auth-flow-container">
+                        <div class="auth-flow-arrow"><i class="bi bi-arrow-down"></i></div>
+                        <h5>3. Access Protected Resources</h5>
+                        <div class="code-block">GET /api/resources/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5...</div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <h4><i class="bi bi-diagram-3 me-2"></i>Core Technologies</h4>
+                    <p>This demo is built using modern Spring Security capabilities:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Spring Boot 3.4.5</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Spring Security</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Spring OAuth2 Client</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Java 17</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>JWT Authentication</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>OAuth2 Resource Server</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Docker Container</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Thymeleaf Templates</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>Bootstrap 5 UI</li>
+                                <li><i class="bi bi-check-circle-fill text-success me-2"></i>RESTful APIs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4 class="mt-4"><i class="bi bi-terminal me-2"></i>Ready to Try?</h4>
+                    <p>Log in with the demo credentials:</p>
+                    <ul>
+                        <li><strong>Regular User:</strong> username: <code>user</code> / password: <code>password</code></li>
+                        <li><strong>Administrator:</strong> username: <code>admin</code> / password: <code>admin</code></li>
+                    </ul>
+                    
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-4">
+                        <a class="btn btn-primary" href="/login">Go to Login</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
     <footer class="container mt-5 py-3 text-center text-muted border-top">
-        <p>&copy; 2025 Docker Demo App</p>
+        <p>&copy; 2025 Spring Boot Security JWT & OAuth2 Demo</p>
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
