@@ -7,7 +7,7 @@
 
 A production-ready Spring Boot application with security login screen, containerized with Docker for cloud deployment. This project demonstrates containerization expertise, CI/CD pipeline integration, and secure application deployment - skills required for senior DevOps and software engineering positions.
 
-![Login Screen](docs/images/login-screenshot.png)
+![Login Screen](docs/images/login-screenshot.svg)
 
 > Note: This project is part of a portfolio showcasing DevOps, containerization, and full-stack development skills.
 
