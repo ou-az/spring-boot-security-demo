@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,23 +20,21 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .authorizeRequests(authorizeRequests ->
-                authorizeRequests
-                    .antMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
-                    .antMatchers("/").permitAll()
-                    .anyRequest().authenticated()
+            .authorizeHttpRequests(authorize -> authorize
+                .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
+                .requestMatchers("/").permitAll()
+                .anyRequest().authenticated()
             )
-            .formLogin(formLogin ->
-                formLogin
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/dashboard")
-                    .permitAll()
+            .formLogin(form -> form
+                .loginPage("/login")
+                .defaultSuccessUrl("/dashboard")
+                .permitAll()
             )
-            .logout(logout ->
-                logout
-                    .logoutSuccessUrl("/login?logout")
-                    .permitAll()
-            );
+            .logout(logout -> logout
+                .logoutSuccessUrl("/login?logout")
+                .permitAll()
+            )
+            .csrf(Customizer.withDefaults());
         
         return http.build();
     }

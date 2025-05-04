@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/github/workflow/status/yourusername/spring-boot-docker-demo/Spring%20Boot%20Docker%20Demo%20CI?style=flat-square)](https://github.com/yourusername/spring-boot-docker-demo/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 [![Docker](https://img.shields.io/badge/Docker-Enabled-blue.svg?style=flat-square&logo=docker)](https://www.docker.com/)
-[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.7.12-green.svg?style=flat-square&logo=spring)](https://spring.io/projects/spring-boot)
+[![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.4.5-green.svg?style=flat-square&logo=spring)](https://spring.io/projects/spring-boot)
 
 A production-ready Spring Boot application with security login screen, containerized with Docker for cloud deployment. This project demonstrates containerization expertise, CI/CD pipeline integration, and secure application deployment - skills required for senior DevOps and software engineering positions.
 
@@ -13,7 +13,7 @@ A production-ready Spring Boot application with security login screen, container
 
 ## Features
 
-- Spring Boot 2.7.x with Java 17
+- Spring Boot 3.4.5 with Java 17
 - Spring Security with form-based authentication
 - Thymeleaf templates with Bootstrap 5
 - Multi-stage Docker build for optimized container size
@@ -86,6 +86,7 @@ This Docker deployment demonstrates several best practices:
 6. **Volume mounting** - Persistent storage for logs
 7. **Network isolation** - Custom bridge network
 
+
 ## Architecture
 
 The application follows a standard Spring MVC architecture:
@@ -102,6 +103,7 @@ This application is designed for deployment to cloud platforms such as:
 - Amazon ECS/EKS
 - Google Cloud Run/GKE
 - Kubernetes clusters
+
 
 ## Next Steps
 
