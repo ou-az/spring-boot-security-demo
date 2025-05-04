@@ -30,7 +30,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .id(1L)
                 .username("user")
                 .email("user@example.com")
-                .password("$2a$10$JH8lZDIKx3VB.Qy7lLm9BOKxMQ5c80vmasiJ8tvr/Q13oHbLr9kla") // "password"
+                .password("$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG") // "password"
                 .roles(Set.of(new Role(1L, "ROLE_USER")))
                 .build();
 
@@ -38,7 +38,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .id(2L)
                 .username("admin")
                 .email("admin@example.com")
-                .password("$2a$10$q7732w6Rj3kZGhI7nQEzr.FFKeoNTzMnKHxZjOGMPdP./W9qKjXE2") // "admin"
+                .password("$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG") // "admin"
                 .roles(Set.of(new Role(1L, "ROLE_USER"), new Role(2L, "ROLE_ADMIN")))
                 .build();
 

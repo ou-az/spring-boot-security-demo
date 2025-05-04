@@ -104,7 +104,7 @@
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 OAuth2 Provider
-                                <span class="badge bg-secondary rounded-pill" sec:authorize="oauth2.client != null" th:text="${#authentication.principal.attributes['iss'] ?: 'N/A'}">GitHub</span>
+                                <span class="badge bg-secondary rounded-pill" sec:authorize="oauth2.client != null" th:if="${#authentication != null && #authentication.principal.attributes != null}" th:text="${#authentication.principal.attributes['iss'] ?: 'N/A'}">GitHub</span>
                                 <span class="badge bg-secondary rounded-pill" sec:authorize="oauth2.client == null">N/A</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
