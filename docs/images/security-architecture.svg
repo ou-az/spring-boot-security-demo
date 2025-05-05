@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold" fill="#343a40">Spring Boot Security Architecture</text>
+  
+  <!-- Layers Background -->
+  <rect x="50" y="80" width="700" height="480" fill="#ffffff" stroke="#dee2e6" stroke-width="2" rx="10"/>
+  
+  <!-- Client Layer -->
+  <rect x="100" y="120" width="600" height="80" fill="#e9ecef" stroke="#ced4da" stroke-width="2" rx="5"/>
+  <text x="400" y="140" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold" fill="#343a40">Client Applications</text>
+  
+  <!-- Web Browser -->
+  <rect x="130" y="155" width="160" height="30" fill="#ffffff" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="210" y="175" font-family="Arial" font-size="12" text-anchor="middle" fill="#343a40">Web Browser (UI)</text>
+  
+  <!-- API Client -->
+  <rect x="320" y="155" width="160" height="30" fill="#ffffff" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="400" y="175" font-family="Arial" font-size="12" text-anchor="middle" fill="#343a40">API Client (REST)</text>
+  
+  <!-- OAuth Client -->
+  <rect x="510" y="155" width="160" height="30" fill="#ffffff" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="590" y="175" font-family="Arial" font-size="12" text-anchor="middle" fill="#343a40">OAuth2 Provider</text>
+  
+  <!-- Authentication Layer -->
+  <rect x="100" y="230" width="600" height="140" fill="#e9ecef" stroke="#ced4da" stroke-width="2" rx="5"/>
+  <text x="400" y="250" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold" fill="#343a40">Authentication Layer</text>
+  
+  <!-- Form Login -->
+  <rect x="130" y="270" width="160" height="80" fill="#ffffff" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="210" y="290" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold" fill="#343a40">Form Authentication</text>
+  <text x="210" y="310" font-family="Arial" font-size="10" text-anchor="middle" fill="#343a40">Spring Security Filters</text>
+  <text x="210" y="325" font-family="Arial" font-size="10" text-anchor="middle" fill="#343a40">Session Management</text>
+  <text x="210" y="340" font-family="Arial" font-size="10" text-anchor="middle" fill="#343a40">CSRF Protection</text>
+  
+  <!-- JWT Auth -->
+  <rect x="320" y="270" width="160" height="80" fill="#ffffff" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="400" y="290" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold" fill="#343a40">JWT Authentication</text>
+  <text x="400" y="310" font-family="Arial" font-size="10" text-anchor="middle" fill="#343a40">JwtAuthFilter</text>
+  <text x="400" y="325" font-family="Arial" font-size="10" text-anchor="middle" fill="#343a40">Token Validation</text>
+  <text x="400" y="340" font-family="Arial" font-size="10" text-anchor="middle" fill="#343a40">Claims Extraction</text>
+  
+  <!-- OAuth -->
+  <rect x="510" y="270" width="160" height="80" fill="#ffffff" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="590" y="290" font-family="Arial" font-size="12" text-anchor="middle" font-weight="bold" fill="#343a40">OAuth2 Authentication</text>
+  <text x="590" y="310" font-family="Arial" font-size="10" text-anchor="middle" fill="#343a40">OAuth2LoginFilter</text>
+  <text x="590" y="325" font-family="Arial" font-size="10" text-anchor="middle" fill="#343a40">GitHub / Google Providers</text>
+  <text x="590" y="340" font-family="Arial" font-size="10" text-anchor="middle" fill="#343a40">Token Exchange</text>
+  
+  <!-- Security Core Layer -->
+  <rect x="100" y="400" width="600" height="100" fill="#e9ecef" stroke="#ced4da" stroke-width="2" rx="5"/>
+  <text x="400" y="420" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold" fill="#343a40">Security Core Layer</text>
+  
+  <!-- User Service -->
+  <rect x="130" y="440" width="180" height="40" fill="#ffffff" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="220" y="465" font-family="Arial" font-size="12" text-anchor="middle" fill="#343a40">CustomUserDetailsService</text>
+  
+  <!-- Authentication Manager -->
+  <rect x="330" y="440" width="180" height="40" fill="#ffffff" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="420" y="465" font-family="Arial" font-size="12" text-anchor="middle" fill="#343a40">AuthenticationManager</text>
+  
+  <!-- Security Config -->
+  <rect x="530" y="440" width="140" height="40" fill="#ffffff" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="600" y="465" font-family="Arial" font-size="12" text-anchor="middle" fill="#343a40">SecurityConfig</text>
+  
+  <!-- Controller Layer -->
+  <rect x="220" y="530" width="360" height="60" fill="#ffffff" stroke="#6c757d" stroke-width="1" rx="3"/>
+  <text x="400" y="550" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold" fill="#343a40">Protected Resources</text>
+  <text x="400" y="570" font-family="Arial" font-size="12" text-anchor="middle" fill="#6c757d">Controllers, Services, Repositories</text>
+  
+  <!-- Connection Lines -->
+  <!-- Client to Auth Layer -->
+  <line x1="210" y1="185" x2="210" y2="270" stroke="#6c757d" stroke-width="1.5"/>
+  <line x1="400" y1="185" x2="400" y2="270" stroke="#6c757d" stroke-width="1.5"/>
+  <line x1="590" y1="185" x2="590" y2="270" stroke="#6c757d" stroke-width="1.5"/>
+  
+  <!-- Auth Layer to Core -->
+  <line x1="210" y1="350" x2="210" y2="440" stroke="#6c757d" stroke-width="1.5"/>
+  <line x1="400" y1="350" x2="400" y2="440" stroke="#6c757d" stroke-width="1.5"/>
+  <line x1="590" y1="350" x2="590" y2="420" stroke="#6c757d" stroke-width="1.5"/>
+  <line x1="590" y1="420" x2="600" y2="420" stroke="#6c757d" stroke-width="1.5"/>
+  <line x1="600" y1="420" x2="600" y2="440" stroke="#6c757d" stroke-width="1.5"/>
+  
+  <!-- Core to Protected Resources -->
+  <line x1="220" y1="480" x2="220" y2="530" stroke="#6c757d" stroke-width="1.5"/>
+  <line x1="420" y1="480" x2="420" y2="530" stroke="#6c757d" stroke-width="1.5"/>
+  <line x1="600" y1="480" x2="600" y2="510" stroke="#6c757d" stroke-width="1.5"/>
+  <line x1="600" y1="510" x2="580" y2="510" stroke="#6c757d" stroke-width="1.5"/>
+  <line x1="580" y1="510" x2="580" y2="530" stroke="#6c757d" stroke-width="1.5"/>
+  
+  <!-- Footer -->
+  <text x="400" y="580" font-family="Arial" font-size="10" text-anchor="middle" fill="#6c757d">Enterprise-Grade Security Implementation for Java Applications</text>
+</svg>
