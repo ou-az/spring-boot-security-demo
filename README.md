@@ -156,7 +156,7 @@ GET /api/resource/admin
 
 This project implements a comprehensive security architecture:
 
-![Security Architecture](docs/images/security-architecture.png)
+![Security Architecture](docs/images/security-architecture.svg)
 
 ### Authentication Flow
 
